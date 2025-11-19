@@ -13,14 +13,14 @@ import re
 from datetime import datetime
 from pathlib import Path
 import tweepy
-import google.generativeai as genai
+from groq import Groq
 import requests
 
 # API Credentials
 TWITTER_API_KEY = os.getenv('TWITTER_API_KEY')
 TWITTER_API_SECRET = os.getenv('TWITTER_API_SECRET')
 TWITTER_BEARER_TOKEN = os.getenv('TWITTER_BEARER_TOKEN')
-GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
+GROQ_API_KEY = os.getenv('GROQ_API_KEY')
 
 # Twitter hesap bilgileri
 TARGET_USERNAME = 'isigmeclisi'
@@ -96,24 +96,12 @@ def fetch_recent_tweets(client, username, since_id=None):
         log(f"❌ Twitter API hatası: {str(e)}")
         return []
 
-def analyze_tweet_with_gemini(tweet_text):
-    """Gemini AI ile tweet'i analiz et ve yapılandırılmış veri çıkar"""
+def analyze_tweet_with_ai(tweet_text):
+    """Groq AI ile tweet'i analiz et ve yapılandırılmış veri çıkar"""
     try:
-        genai.configure(api_key=GEMINI_API_KEY)
+        client = Groq(api_key=GROQ_API_KEY)
         
-        # Gemini 1.5 Flash modelini kullan
-        model = genai.GenerativeModel(
-            model_name='gemini-1.5-flash',
-            generation_config={
-                'temperature': 0.1,
-                'top_p': 0.95,
-                'top_k': 40,
-                'max_output_tokens': 1024,
-            }
-        )
-        
-        prompt = f"""
-Aşağıdaki tweet bir iş cinayeti (iş kazası) raporu mu? Eğer öyleyse, lütfen aşağıdaki bilgileri JSON formatında çıkar.
+        prompt = f"""Aşağıdaki tweet bir iş cinayeti (iş kazası) raporu mu? Eğer öyleyse, lütfen aşağıdaki bilgileri JSON formatında çıkar.
 Eğer bu bir iş cinayeti raporu değilse, "isWorkAccident": false döndür.
 
 Tweet:
@@ -133,26 +121,36 @@ Lütfen şu formatta JSON döndür (Türkçe karakterleri koru):
     "sector": "Sektör (inşaat, maden, fabrika, vb.)"
 }}
 
-Sadece JSON döndür, başka açıklama ekleme. Eğer bilgi yoksa null kullan.
-"""
+Sadece JSON döndür, başka açıklama ekleme. Eğer bilgi yoksa null kullan."""
         
-        response = model.generate_content(prompt)
+        chat_completion = client.chat.completions.create(
+            messages=[
+                {
+                    "role": "user",
+                    "content": prompt,
+                }
+            ],
+            model="llama-3.3-70b-versatile",
+            temperature=0.1,
+            max_tokens=1024,
+        )
+        
+        response_text = chat_completion.choices[0].message.content.strip()
         
         # JSON çıkar (markdown code block'tan temizle)
-        text = response.text.strip()
-        if text.startswith('```json'):
-            text = text[7:]
-        if text.startswith('```'):
-            text = text[3:]
-        if text.endswith('```'):
-            text = text[:-3]
-        text = text.strip()
+        if response_text.startswith('```json'):
+            response_text = response_text[7:]
+        if response_text.startswith('```'):
+            response_text = response_text[3:]
+        if response_text.endswith('```'):
+            response_text = response_text[:-3]
+        response_text = response_text.strip()
         
-        data = json.loads(text)
+        data = json.loads(response_text)
         return data
         
     except Exception as e:
-        log(f"❌ Gemini AI hatası: {str(e)}")
+        log(f"❌ AI hatası: {str(e)}")
         return None
 
 def geocode_location(city, district=None):
@@ -235,8 +233,8 @@ def process_tweets():
         log(f"Tarih: {tweet.created_at}")
         log(f"Metin: {tweet.text[:100]}...")
         
-        # Gemini ile analiz et
-        analysis = analyze_tweet_with_gemini(tweet.text)
+        # AI ile analiz et
+        analysis = analyze_tweet_with_ai(tweet.text)
         
         if not analysis or not analysis.get('isWorkAccident'):
             log("ℹ️ İş cinayeti raporu değil, atlanıyor")
