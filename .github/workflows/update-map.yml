@@ -63,46 +63,46 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            
-            // new_entries.json dosyasını oku
             const newEntries = JSON.parse(fs.readFileSync('new_entries.json', 'utf8'));
             
             for (const entry of newEntries) {
-              const title = `🔴 Yeni İş Cinayeti Kaydı - ${entry.city} - ${entry.date || 'Tarih belirsiz'}`;
+              const victims = entry.victims && entry.victims.length > 0 
+                ? entry.victims.map(v => `- ${v}`).join('\n') 
+                : 'Bilinmiyor';
               
-              const body = `
-## Yeni İş Cinayeti Kaydı Eklendi
-
-**📍 Konum:** ${entry.location || 'Bilinmiyor'}  
-**📅 Tarih:** ${entry.date || 'Bilinmiyor'}  
-**🏢 Şirket:** ${entry.company || 'Bilinmiyor'}  
-**⚰️ Hayatını Kaybedenler:**
-${entry.victims.map(v => `- ${v}`).join('\n')}
-
-**💀 Ölüm Nedeni:** ${entry.cause || 'Bilinmiyor'}
-
-**📝 Detaylar:**
-${entry.details || 'Detay yok'}
-
-**🏭 Sektör:** ${entry.sector || 'Bilinmiyor'}
-
----
-
-**🐦 Kaynak Tweet:** https://twitter.com/${entry.tweetId ? 'i/status/' + entry.tweetId : 'Bilinmiyor'}
-
-**🗺️ Koordinatlar:** ${entry.coords ? entry.coords.join(', ') : 'Bulunamadı'}
-
-**⏰ Eklenme Zamanı:** ${entry.addedAt}
-
----
-
-### Yapılacaklar:
-- [ ] Bilgileri doğrula
-- [ ] Koordinatları kontrol et
-- [ ] Gerekirse düzeltme yap
-
-Bu kayıt otomatik olarak sisteme eklendi. Lütfen bilgileri kontrol edin ve gerekirse düzeltmeler yapın.
-              `;
+              const title = `🔴 Yeni İş Cinayeti - ${entry.city || 'Bilinmiyor'} - ${entry.date || 'Tarih belirsiz'}`;
+              
+              const body = [
+                '## Yeni İş Cinayeti Kaydı Eklendi',
+                '',
+                `**📍 Konum:** ${entry.location || 'Bilinmiyor'}`,
+                `**📅 Tarih:** ${entry.date || 'Bilinmiyor'}`,
+                `**🏢 Şirket:** ${entry.company || 'Bilinmiyor'}`,
+                '**⚰️ Hayatını Kaybedenler:**',
+                victims,
+                '',
+                `**💀 Ölüm Nedeni:** ${entry.cause || 'Bilinmiyor'}`,
+                '',
+                '**📝 Detaylar:**',
+                entry.details || 'Detay yok',
+                '',
+                `**🏭 Sektör:** ${entry.sector || 'Bilinmiyor'}`,
+                '',
+                '---',
+                '',
+                `**🐦 Kaynak Tweet:** https://twitter.com/i/status/${entry.tweetId || 'unknown'}`,
+                `**🗺️ Koordinatlar:** ${entry.coords ? entry.coords.join(', ') : 'Bulunamadı'}`,
+                `**⏰ Eklenme Zamanı:** ${entry.addedAt}`,
+                '',
+                '---',
+                '',
+                '### Yapılacaklar:',
+                '- [ ] Bilgileri doğrula',
+                '- [ ] Koordinatları kontrol et',
+                '- [ ] Gerekirse düzeltme yap',
+                '',
+                'Bu kayıt otomatik olarak sisteme eklendi. Lütfen bilgileri kontrol edin.'
+              ].join('\n');
               
               await github.rest.issues.create({
                 owner: context.repo.owner,
