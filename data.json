@@ -1,1 +1,159 @@
-[]
+[
+    {
+        "id": "tweet-1990851254570860697",
+        "tweetId": "1990851254570860697",
+        "coords": [
+            37.8895,
+            41.1293
+        ],
+        "date": "18.11.2025",
+        "location": "Batman, Merkez",
+        "city": "Batman",
+        "district": "Merkez",
+        "company": null,
+        "victims": [
+            "Bilal Polat (23)"
+        ],
+        "age_min": 23,
+        "age_max": 23,
+        "gender": "Erkek",
+        "cause": "Elektrik akımına kapılma",
+        "details": "Batman Merkez'de akşam sularında çalıştığı atölyede elektrik akımına kapılarak hayatını kaybetti.",
+        "sector": "Metal",
+        "tweetText": "Bilal Polat.. 23 yaşında.. Batman Merkez'de akşam sularında çalıştığı atölyede elektrik akımına kapı...",
+        "image": "images/1990851254570860697.jpg",
+        "addedAt": "2025-11-19T20:00:00",
+        "messages": [
+            {
+                "name": "Ahmet Polat (Kuzeni)",
+                "text": "Canım kuzenim, mekanın cennet olsun. Seni hiç unutmayacağız.",
+                "date": "19.11.2025"
+            }
+        ]
+    },
+    {
+        "id": "tweet-1990857706748379527",
+        "tweetId": "1990857706748379527",
+        "coords": [
+            39.8448,
+            27.1758
+        ],
+        "date": "18.11.2025",
+        "location": "Çanakkale, Yenice, Hıdırlar Köyü",
+        "city": "Çanakkale",
+        "district": "Yenice",
+        "company": null,
+        "victims": [
+            "Mehmet Gönül (19)"
+        ],
+        "age_min": 19,
+        "age_max": 19,
+        "gender": "Erkek",
+        "cause": "Orman işçisi",
+        "details": "Çanakkale Yenice Hıdırlar Köyü'nde öğle sularında ormanda çalışırken hayatını kaybetti.",
+        "sector": "Tarım/Orman",
+        "tweetText": "Mehmet Gönül.. 19 yaşında, orman işçisi.. Çanakkale Yenice Hıdırlar Köyü'nde öğle sularında ormanda ...",
+        "image": "images/1990857706748379527.jpg",
+        "addedAt": "2025-11-19T20:00:00"
+    },
+    {
+        "id": "tweet-1991076259753763038",
+        "tweetId": "1991076259753763038",
+        "coords": [
+            39.9644,
+            32.6067
+        ],
+        "date": "19.11.2025",
+        "location": "Ankara, Etimesgut, Yeşilova Mahallesi",
+        "city": "Ankara",
+        "district": "Etimesgut",
+        "company": null,
+        "victims": [
+            "İrfan Fidan (35-40)"
+        ],
+        "age_min": 35,
+        "age_max": 40,
+        "gender": "Erkek",
+        "cause": "İnşaat kazası",
+        "details": "Ankara Etimesgut Yeşilova Mahallesi'nde inşaatta çalışırken hayatını kaybetti.",
+        "sector": "İnşaat",
+        "tweetText": "İrfan Fidan.. 35-40 yaşlarında.. Ankara Etimesgut Yeşilova Mahallesi'nde 16.00 sularında iki aydır ç...",
+        "image": null,
+        "addedAt": "2025-11-19T20:00:00"
+    },
+    {
+        "id": "tweet-1991085143977492602",
+        "tweetId": "1991085143977492602",
+        "coords": [
+            39.1282,
+            40.0757
+        ],
+        "date": "19.11.2025",
+        "location": "Elazığ, Karakoçan, Özlüce Baraj Gölü",
+        "city": "Elazığ",
+        "district": "Karakoçan",
+        "company": null,
+        "victims": [
+            "Esra Sümer (39)"
+        ],
+        "age_min": 39,
+        "age_max": 39,
+        "gender": "Kadın",
+        "cause": "İş kazası",
+        "details": "Elazığ Karakoçan Özlüce Baraj Gölü'nde bir balık çiftliğinde mühendis olarak çalışırken mesai esnasında üşüyüp pikap araca girdi, el freni açılan aracın kayarak göle düşmesi sonucu boğularak hayatını kaybetti.",
+        "sector": "Tarım/Balıkçılık",
+        "tweetText": "Esra Sümer.. 39 yaşında, bir balık çiftliğinde mühendis.. Elazığ Karakoçan Özlüce Baraj Gölü'nde mes...",
+        "image": null,
+        "addedAt": "2025-11-19T20:00:00"
+    },
+    {
+        "id": "tweet-1991117828842520815",
+        "tweetId": "1991117828842520815",
+        "coords": [
+            40.7745,
+            30.4013
+        ],
+        "date": "19.11.2025",
+        "location": "Sakarya, Adapazarı",
+        "city": "Sakarya",
+        "district": "Adapazarı",
+        "company": null,
+        "victims": [
+            "Rasim Yüksel (55)"
+        ],
+        "age_min": 55,
+        "age_max": 55,
+        "gender": "Erkek",
+        "cause": "Yüksekten düşme",
+        "details": "Sakarya Adapazarı’nda çalıştığı inşaatın çatısından düşerek hayatını kaybetti.",
+        "sector": "İnşaat",
+        "tweetText": "Rasim Yüksel.. 55 yaşında, çatı ustası.. Sakarya Adapazarı’nda akşam sularında çalıştığı inşaatın 1....",
+        "image": "images/1991117828842520815.jpg",
+        "addedAt": "2025-11-19T20:00:00"
+    },
+    {
+        "id": "tweet-1991060889105997827",
+        "tweetId": "1991060889105997827",
+        "coords": [
+            37.3628,
+            38.5256
+        ],
+        "date": "19.11.2025",
+        "location": "Şanlıurfa, Bozova",
+        "city": "Şanlıurfa",
+        "district": "Bozova",
+        "company": null,
+        "victims": [
+            "Muhammed Kendirci (15)"
+        ],
+        "age_min": 15,
+        "age_max": 15,
+        "gender": "Erkek",
+        "cause": "İnşaat kazası",
+        "details": "Şanlıurfa Bozova'da çalıştığı marangoz atölyesinde hayatını kaybetti.",
+        "sector": "Ağaç/Marangoz",
+        "tweetText": "Muhammed Kendirci.. 15 yaşında, çırak.. Şanlıurfa Bozova'da çalıştığı marangoz atölyesinde kalfa Hab...",
+        "image": null,
+        "addedAt": "2025-11-19T20:00:00"
+    }
+]
