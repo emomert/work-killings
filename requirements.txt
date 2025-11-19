@@ -1,4 +1,4 @@
 tweepy
-groq
+google-generativeai
 requests
 python-dotenv

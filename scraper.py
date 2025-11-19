@@ -13,14 +13,14 @@ import re
 from datetime import datetime
 from pathlib import Path
 import tweepy
-from groq import Groq
+import google.generativeai as genai
 import requests
 
 # API Credentials
 TWITTER_API_KEY = os.getenv('TWITTER_API_KEY')
 TWITTER_API_SECRET = os.getenv('TWITTER_API_SECRET')
 TWITTER_BEARER_TOKEN = os.getenv('TWITTER_BEARER_TOKEN')
-GROQ_API_KEY = os.getenv('GROQ_API_KEY')
+GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
 
 # Twitter hesap bilgileri
 TARGET_USERNAME = 'isigmeclisi'
@@ -97,9 +97,10 @@ def fetch_recent_tweets(client, username, since_id=None):
         return []
 
 def analyze_tweet_with_ai(tweet_text):
-    """Groq AI ile tweet'i analiz et ve yapılandırılmış veri çıkar"""
+    """Gemini AI ile tweet'i analiz et ve yapılandırılmış veri çıkar"""
     try:
-        client = Groq(api_key=GROQ_API_KEY)
+        genai.configure(api_key=GOOGLE_API_KEY)
+        model = genai.GenerativeModel('gemini-1.5-flash')
         
         prompt = f"""Aşağıdaki tweet bir iş cinayeti (iş kazası) raporu mu? Eğer öyleyse, lütfen aşağıdaki bilgileri JSON formatında çıkar.
 Eğer bu bir iş cinayeti raporu değilse, "isWorkAccident": false döndür.
@@ -123,19 +124,8 @@ Lütfen şu formatta JSON döndür (Türkçe karakterleri koru):
 
 Sadece JSON döndür, başka açıklama ekleme. Eğer bilgi yoksa null kullan."""
         
-        chat_completion = client.chat.completions.create(
-            messages=[
-                {
-                    "role": "user",
-                    "content": prompt,
-                }
-            ],
-            model="llama-3.3-70b-versatile",
-            temperature=0.1,
-            max_tokens=1024,
-        )
-        
-        response_text = chat_completion.choices[0].message.content.strip()
+        response = model.generate_content(prompt)
+        response_text = response.text.strip()
         
         # JSON çıkar (markdown code block'tan temizle)
         if response_text.startswith('```json'):
