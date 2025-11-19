@@ -100,7 +100,7 @@ def analyze_tweet_with_gemini(tweet_text):
     """Gemini AI ile tweet'i analiz et ve yapılandırılmış veri çıkar"""
     try:
         genai.configure(api_key=GEMINI_API_KEY)
-        model = genai.GenerativeModel('gemini-1.5-flash')
+        model = genai.GenerativeModel('gemini-pro')
         
         prompt = f"""
 Aşağıdaki tweet bir iş cinayeti (iş kazası) raporu mu? Eğer öyleyse, lütfen aşağıdaki bilgileri JSON formatında çıkar.
