@@ -78,7 +78,7 @@
         "details": "Ankara Etimesgut Yeşilova Mahallesi'nde inşaatta çalışırken hayatını kaybetti.",
         "sector": "İnşaat",
         "tweetText": "İrfan Fidan.. 35-40 yaşlarında.. Ankara Etimesgut Yeşilova Mahallesi'nde 16.00 sularında iki aydır ç...",
-        "image": null,
+        "image": "images/1991117828842520817.jpg",
         "addedAt": "2025-11-19T20:00:00"
     },
     {
@@ -149,11 +149,8 @@
         "age_min": 15,
         "age_max": 15,
         "gender": "Erkek",
-        "cause": "İnşaat kazası",
-        "details": "Şanlıurfa Bozova'da çalıştığı marangoz atölyesinde hayatını kaybetti.",
-        "sector": "Ağaç/Marangoz",
-        "tweetText": "Muhammed Kendirci.. 15 yaşında, çırak.. Şanlıurfa Bozova'da çalıştığı marangoz atölyesinde kalfa Hab...",
-        "image": null,
-        "addedAt": "2025-11-19T20:00:00"
+        "cause": "İşkence",
+        "details": "Şanlıurfa Bozova'da çalıştığı marangoz atölyesinde kalfa Habip Aksoy ile kalfanın bir arkadaşı tarafından elleri bağlandı ve makat bölgesine yüksek basınçlı kompresörle hava verildi..
+İç organlarında ağır hasar oluşan Muhammed, beş gündür tedavi gördüğü hastanede hayatını kaybetti..","sector": "Ağaç/Marangoz","tweetText": "Muhammed Kendirci.. 15 yaşında, çırak.. Şanlıurfa Bozova'da çalıştığı marangoz atölyesinde kalfa Hab...","image": "images/1991117828842520816","addedAt": "2025-11-19T20:00:00"
     }
 ]
