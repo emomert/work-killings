@@ -1,0 +1,182 @@
+[
+  {
+    "id": "person-filiz-uzun-bursa-05122025",
+    "person_name": "Filiz Uzun",
+    "age": 56,
+    "gender": "Kadın",
+    "coords": [
+      40.0350481,
+      28.4132707
+    ],
+    "date": "05.12.2025",
+    "location": "Bursa Mustafakemalpaşa",
+    "city": "Bursa",
+    "district": "Mustafakemalpaşa",
+    "company": "Tat Gıda",
+    "cause": "Çalışırken fenalaşarak hayatını kaybetti.",
+    "details": "56 yaşındaki Filiz Uzun, Bursa Mustafakemalpaşa'daki Tat Gıda fabrikasının hazır yemek bölümünde sarma üretimi yapılan alanda çalışırken fenalaşarak hayatını kaybetti.",
+    "sector": "Diğer İşkolları",
+    "sector_raw": "Gıda",
+    "tweetId": "1996906298865283458",
+    "tweetUrl": "https://x.com/isigmeclisi/status/1996906298865283458",
+    "addedAt": "2025-12-05T22:27:30.108843",
+    "image": "images/1996906298865283458-1.jpg",
+    "imageUrl": "https://pbs.twimg.com/media/G7ZuSRUXIAA3tRx.jpg",
+    "related_tweet_ids": [
+      "1996906298865283458"
+    ],
+    "victim_group_id": "incident-1996906298865283458",
+    "incident_id": "incident-1996906298865283458",
+    "multi_victim": false
+  },
+  {
+    "id": "person-naci-ozmen-mus-03122025",
+    "person_name": "Naci Özmen",
+    "age": 40,
+    "gender": "Erkek",
+    "coords": [
+      38.7322221,
+      41.4898925
+    ],
+    "date": "03.12.2025",
+    "location": "Muş Merkez Derecik Köyü Darboğaz mevki",
+    "city": "Muş",
+    "district": "Merkez",
+    "company": "Vangölü Elektrik Dağıtım A.Ş. (VEDAŞ)",
+    "cause": "Şirket hizmet aracının 140 metrelik şarampole devrilmesi sonucu hayatını kaybetti.",
+    "details": "40 yaşındaki işçi, şirket hizmet aracının şarampole devrilmesi sonucu hayatını kaybetti.",
+    "sector": "Diğer İşkolları",
+    "sector_raw": "Elektrik dağıtım, arıza, onarım, bakım",
+    "tweetId": "1996147241791504510",
+    "tweetUrl": "https://x.com/isigmeclisi/status/1996147241791504510",
+    "addedAt": "2025-12-05T22:27:52.419774",
+    "image": "images/1996147241791504510-1.jpg",
+    "imageUrl": "https://pbs.twimg.com/media/G7O84C0W0AADm0R.jpg",
+    "related_tweet_ids": [
+      "1996147241791504510"
+    ],
+    "victim_group_id": "incident-1996147241791504510",
+    "incident_id": "incident-1996147241791504510",
+    "multi_victim": false
+  },
+  {
+    "id": "person-fatih-demirkaya-hatay-02122025",
+    "person_name": "Fatih Demirkaya",
+    "age": 29,
+    "gender": "Erkek",
+    "coords": [
+      36.3451332,
+      36.0748022
+    ],
+    "date": "02.12.2025",
+    "location": "Hatay",
+    "city": "Hatay",
+    "district": null,
+    "company": null,
+    "cause": "Yüksekten düşerek hayatını kaybetti.",
+    "details": "Fatih Demirkaya, Hatay'da çalıştığı inşaatta yüksekten düşerek hayatını kaybetti.",
+    "sector": "İnşaat, Yol",
+    "sector_raw": "inşaat",
+    "tweetId": "1995878277035295166",
+    "tweetUrl": "https://x.com/isigmeclisi/status/1995878277035295166",
+    "addedAt": "2025-12-05T22:27:59.785637",
+    "image": "images/1995878277035295166-1.jpg",
+    "imageUrl": "https://pbs.twimg.com/media/G7LH5olWwAAaDDa.jpg",
+    "related_tweet_ids": [
+      "1995878277035295166"
+    ],
+    "victim_group_id": "incident-1995878277035295166",
+    "incident_id": "incident-1995878277035295166",
+    "multi_victim": false
+  },
+  {
+    "id": "person-murat-arslan-malatya-02122025",
+    "person_name": "Murat Arslan",
+    "age": 30,
+    "gender": "Erkek",
+    "coords": [
+      38.3487153,
+      38.3190674
+    ],
+    "date": "02.12.2025",
+    "location": "Malatya",
+    "city": "Malatya",
+    "district": null,
+    "company": null,
+    "cause": "Yüksekten düşerek hayatını kaybetti.",
+    "details": "Murat Arslan, Malatya'da çalıştığı inşaatta yüksekten düşerek hayatını kaybetti.",
+    "sector": "İnşaat, Yol",
+    "sector_raw": "inşaat",
+    "tweetId": "1995875617511014740",
+    "tweetUrl": "https://x.com/isigmeclisi/status/1995875617511014740",
+    "addedAt": "2025-12-05T22:28:05.798807",
+    "image": "images/1995875617511014740-1.jpg",
+    "imageUrl": "https://pbs.twimg.com/media/G7LGKLeWEAAE3sU.jpg",
+    "related_tweet_ids": [
+      "1995875617511014740"
+    ],
+    "victim_group_id": "incident-1995875617511014740",
+    "incident_id": "incident-1995875617511014740",
+    "multi_victim": false
+  },
+  {
+    "id": "person-celal-aknc-sanlurfa-02122025",
+    "person_name": "Celal Akıncı",
+    "age": 46,
+    "gender": "Erkek",
+    "coords": [
+      37.2328946,
+      39.7620135
+    ],
+    "date": "02.12.2025",
+    "location": "Şanlıurfa Viranşehir",
+    "city": "Şanlıurfa",
+    "district": "Viranşehir",
+    "company": null,
+    "cause": "İnşaatın 2. katından düşerek hayatını kaybetti.",
+    "details": "Celal Akıncı, çalıştığı inşaattan düşerek hayatını kaybetti.",
+    "sector": "İnşaat, Yol",
+    "sector_raw": "inşaat",
+    "tweetId": "1995843306044228020",
+    "tweetUrl": "https://x.com/isigmeclisi/status/1995843306044228020",
+    "addedAt": "2025-12-05T22:28:16.258672",
+    "image": "images/1995843306044228020-1.jpg",
+    "imageUrl": "https://pbs.twimg.com/media/G7Koo7GWIAAt7Xn.jpg",
+    "related_tweet_ids": [
+      "1995843306044228020"
+    ],
+    "victim_group_id": "incident-1995843306044228020",
+    "incident_id": "incident-1995843306044228020",
+    "multi_victim": false
+  },
+  {
+    "id": "person-nimet-cengiz-mardin-02122025",
+    "person_name": "Nimet Cengiz",
+    "age": 38,
+    "gender": "Bilinmiyor",
+    "coords": [
+      37.5459484,
+      41.7206012
+    ],
+    "date": "02.12.2025",
+    "location": "Mardin Dargeçit, Ilısu Prof. Dr. Veysel Eroğlu Barajı ve Hidroelektrik Santrali",
+    "city": "Mardin",
+    "district": "Dargeçit",
+    "company": null,
+    "cause": "25 metre yüksekten düşerek hayatını kaybetti.",
+    "details": "Mardin Dargeçit'te çalıştığı Ilısu Prof. Dr. Veysel Eroğlu Barajı ve Hidroelektrik Santralinde 25 metre yüksekten düşerek hayatını kaybetti.",
+    "sector": "Diğer İşkolları",
+    "sector_raw": "enerji işçisi",
+    "tweetId": "1995839731117293808",
+    "tweetUrl": "https://x.com/isigmeclisi/status/1995839731117293808",
+    "addedAt": "2025-12-05T22:28:25.046016",
+    "image": "images/1995839731117293808-1.jpg",
+    "imageUrl": "https://pbs.twimg.com/media/G7Kkw5DW4AAHinw.jpg",
+    "related_tweet_ids": [
+      "1995839731117293808"
+    ],
+    "victim_group_id": "incident-1995839731117293808",
+    "incident_id": "incident-1995839731117293808",
+    "multi_victim": false
+  }
+]

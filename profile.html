@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kişi Profili - Türkiye İş Cinayetleri Haritası</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div>
+                    <h1><a href="index.html" style="color: white; text-decoration: none;">Türkiye İş Cinayetleri
+                            Haritası</a></h1>
+                    <p class="description">
+                        İş kazaları değil, iş cinayetleri.
+                    </p>
+                </div>
+                <div class="view-toggle">
+                    <button class="active" onclick="window.location.href='index.html#map'">Harita</button>
+                    <button onclick="window.location.href='index.html#table'">Veri Tablosu</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="profile-container">
+            <div id="loading">Yükleniyor...</div>
+
+            <div id="profile-content" style="display: none;">
+                <div class="profile-header">
+                    <h2 id="victim-name">İsim Soyisim</h2>
+                    <span id="incident-date" class="date-badge">01.01.2025</span>
+                    <span id="multi-badge" class="date-badge" style="display: none;">Çoklu Olay</span>
+                </div>
+
+                <div class="profile-grid">
+                    <div class="profile-details">
+                        <div class="detail-card">
+                            <h3>Olay Detayları</h3>
+                            <div class="detail-row" id="source-row" style="display: none;">
+                                <strong>Kaynak:</strong> <a id="source-tweet" href="#" target="_blank" class="source-link">Tweet'i Görüntüle</a>
+                            </div>
+                            <div class="detail-row">
+                                <strong>Şehir:</strong> <span id="incident-city">-</span>
+                            </div>
+                            <div class="detail-row">
+                                <strong>İlçe:</strong> <span id="incident-district">-</span>
+                            </div>
+                            <div class="detail-row">
+                                <strong>Yaş:</strong> <span id="incident-age">-</span>
+                            </div>
+                            <div class="detail-row">
+                                <strong>Cinsiyet:</strong> <span id="incident-gender">-</span>
+                            </div>
+                            <div class="detail-row">
+                                <strong>Sektör:</strong> <span id="incident-sector">-</span>
+                            </div>
+                            <div class="detail-row">
+                                <strong>Şirket:</strong> <span id="incident-company">-</span>
+                            </div>
+                            <div class="detail-row">
+                                <strong>Neden:</strong> <span id="incident-cause">-</span>
+                            </div>
+                            <div class="detail-description">
+                                <strong>Açıklama:</strong>
+                                <p id="incident-details">-</p>
+                            </div>
+                        </div>
+
+                        <div class="detail-card memorial-section">
+                            <h3>Yakınlarının Mesajları</h3>
+                            <div class="memorial-content">
+                                <p class="placeholder-text">Henüz bir mesaj eklenmemiş.</p>
+                                <!-- Future: Add form or list of messages here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-sidebar">
+                        <div class="profile-map">
+                            <div id="mini-map"></div>
+                        </div>
+                        <div class="profile-image-container" id="image-container" style="display: none;">
+                            <img id="victim-image" src="" alt="Kurban Fotoğrafı">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>
+                Her bir işaretleyici, bir iş cinayetini temsil etmektedir.
+            </p>
+        </footer>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <!-- Custom JS -->
+    <script src="profile.js"></script>
+</body>
+
+</html>

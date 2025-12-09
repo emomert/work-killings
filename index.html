@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Türkiye İş Cinayetleri Haritası</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    
+    <!-- Leaflet MarkerCluster CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div>
+                    <h1>Türkiye İş Cinayetleri Haritası</h1>
+                    <p class="description">
+                        İş kazaları değil, iş cinayetleri. Bu harita, Türkiye'de yetersiz iş güvenliği nedeniyle
+                        hayatını kaybeden işçilerin anısına oluşturulmuştur.
+                    </p>
+                </div>
+                <div class="view-toggle">
+                    <button id="mapViewBtn" class="active">Harita</button>
+                    <button id="tableViewBtn">Veri Tablosu</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="filter-sidebar hidden" id="filter-sidebar">
+                <div class="filter-header">
+                    <h3>Filtrele</h3>
+                    <button id="filter-close-btn" class="filter-close-btn">&times;</button>
+                </div>
+
+                <div class="filter-content">
+                    <div class="filter-group">
+                        <label>Yaş Aralığı</label>
+                        <div class="age-inputs">
+                            <input type="number" id="filter-age-min" placeholder="Min" min="0" max="100">
+                            <span>-</span>
+                            <input type="number" id="filter-age-max" placeholder="Max" min="0" max="100">
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Cinsiyet</label>
+                        <div class="select-wrapper">
+                            <select id="filter-gender">
+                                <option value="">Tümü</option>
+                                <option value="Erkek">Erkek</option>
+                                <option value="Kadın">Kadın</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Sektör</label>
+                        <div class="select-wrapper">
+                            <select id="filter-sector">
+                                <option value="">Tümü</option>
+                                <!-- Populated dynamically -->
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Şehir</label>
+                        <div class="select-wrapper">
+                            <select id="filter-city">
+                                <option value="">Tümü</option>
+                                <!-- Populated dynamically -->
+                            </select>
+                        </div>
+                    </div>
+
+                    <button id="filter-reset-btn">Temizle</button>
+                </div>
+            </aside>
+
+            <button id="filter-toggle-btn" class="filter-toggle-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                </svg>
+            </button>
+
+            <div id="map-container" class="view-container active">
+                <div id="map"></div>
+            </div>
+
+            <div id="table-container" class="view-container">
+                <div class="table-header">
+                    <button id="export-csv-btn" class="export-btn">CSV Olarak Dışa Aktar</button>
+                </div>
+                <div class="table-wrapper">
+                    <table id="accidents-table">
+                        <thead>
+                            <tr>
+                                <th>İsim</th>
+                                <th>Tarih</th>
+                                <th>Şehir</th>
+                                <th>İlçe</th>
+                                <th>Sektör</th>
+                                <th>Neden</th>
+                            </tr>
+                        </thead>
+                        <tbody id="accident-table-body">
+                            <!-- Data will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>
+                Her bir işaretleyici, bir iş cinayetini temsil etmektedir.
+                Detayları görmek için işaretleyicilere tıklayın.
+            </p>
+        </footer>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <!-- Leaflet MarkerCluster JS -->
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>

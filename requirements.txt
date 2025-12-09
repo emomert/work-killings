@@ -1,0 +1,6 @@
+twikit
+openai
+geopy
+python-dotenv
+requests
+tweepy
