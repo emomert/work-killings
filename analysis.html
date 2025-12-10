@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analiz - Türkiye İş Cinayetleri Haritası</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="analysis.css">
+</head>
+
+<body class="analysis-page">
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div>
+                    <h1>Türkiye İş Cinayetleri Haritası</h1>
+                    <p class="description">
+                        İş kazaları değil, iş cinayetleri. Bu harita, Türkiye'de yetersiz iş güvenliği nedeniyle
+                        hayatını kaybeden işçilerin anısına oluşturulmuştur.
+                    </p>
+                </div>
+                <div class="header-controls">
+                    <div class="view-toggle">
+                        <a href="index.html" class="nav-btn">Harita</a>
+                        <a href="index.html#table" class="nav-btn">Veri Tablosu</a>
+                        <a href="analysis.html" class="nav-btn active">Analiz</a>
+                    </div>
+                    <div class="year-toggle">
+                        <button class="year-btn active" data-year="2025">2025</button>
+                        <button class="year-btn" data-year="2024">2024</button>
+                        <button class="year-btn" data-year="2023">2023</button>
+                        <button class="year-btn" data-year="all">Tüm Yıllar</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="analysis-content">
+            <!-- Monthly Deaths Chart -->
+            <section class="analysis-card">
+                <div class="card-header">
+                    <h2>Aylık İş Cinayetleri</h2>
+                    <div class="card-filters">
+                        <select id="monthly-gender" class="filter-select">
+                            <option value="">Tüm Cinsiyetler</option>
+                            <option value="Erkek">Erkek</option>
+                            <option value="Kadın">Kadın</option>
+                        </select>
+                        <select id="monthly-sector" class="filter-select">
+                            <option value="">Tüm Sektörler</option>
+                        </select>
+                        <input type="date" id="monthly-date-start" class="filter-date">
+                        <input type="date" id="monthly-date-end" class="filter-date">
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="monthlyChart"></canvas>
+                </div>
+            </section>
+
+            <!-- Sector Pie Chart -->
+            <section class="analysis-card">
+                <div class="card-header">
+                    <h2>Sektörlere Göre Dağılım</h2>
+                    <div class="card-filters">
+                        <select id="sector-gender" class="filter-select">
+                            <option value="">Tüm Cinsiyetler</option>
+                            <option value="Erkek">Erkek</option>
+                            <option value="Kadın">Kadın</option>
+                        </select>
+                        <input type="date" id="sector-date-start" class="filter-date">
+                        <input type="date" id="sector-date-end" class="filter-date">
+                    </div>
+                </div>
+                <div class="chart-container pie-container">
+                    <canvas id="sectorChart"></canvas>
+                </div>
+            </section>
+
+            <!-- Age Groups Chart -->
+            <section class="analysis-card">
+                <div class="card-header">
+                    <h2>Yaş Gruplarına Göre Dağılım</h2>
+                    <div class="card-filters">
+                        <select id="age-gender" class="filter-select">
+                            <option value="">Tüm Cinsiyetler</option>
+                            <option value="Erkek">Erkek</option>
+                            <option value="Kadın">Kadın</option>
+                        </select>
+                        <select id="age-sector" class="filter-select">
+                            <option value="">Tüm Sektörler</option>
+                        </select>
+                        <input type="date" id="age-date-start" class="filter-date">
+                        <input type="date" id="age-date-end" class="filter-date">
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+            </section>
+
+            <!-- Yearly Comparison Chart -->
+            <section class="analysis-card">
+                <div class="card-header">
+                    <h2>Yıllık Karşılaştırma</h2>
+                    <div class="card-filters">
+                        <select id="yearly-gender" class="filter-select">
+                            <option value="">Tüm Cinsiyetler</option>
+                            <option value="Erkek">Erkek</option>
+                            <option value="Kadın">Kadın</option>
+                        </select>
+                        <select id="yearly-sector" class="filter-select">
+                            <option value="">Tüm Sektörler</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="yearlyChart"></canvas>
+                </div>
+            </section>
+
+            <!-- Regional Map -->
+            <section class="analysis-card map-card">
+                <div class="card-header">
+                    <h2>İllere Göre İş Cinayetleri</h2>
+                    <div class="card-filters">
+                        <select id="map-gender" class="filter-select">
+                            <option value="">Tüm Cinsiyetler</option>
+                            <option value="Erkek">Erkek</option>
+                            <option value="Kadın">Kadın</option>
+                        </select>
+                        <select id="map-sector" class="filter-select">
+                            <option value="">Tüm Sektörler</option>
+                        </select>
+                        <input type="date" id="map-date-start" class="filter-date">
+                        <input type="date" id="map-date-end" class="filter-date">
+                    </div>
+                </div>
+                <div class="map-container">
+                    <div id="choropleth-map"></div>
+                </div>
+                <div class="map-legend" id="map-legend"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>
+                Her bir işaretleyici, bir iş cinayetini temsil etmektedir.
+                Detayları görmek için işaretleyicilere tıklayın.
+            </p>
+        </footer>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom JS -->
+    <script src="analysis.js"></script>
+</body>
+
+</html>

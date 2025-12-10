@@ -9,7 +9,7 @@
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-    
+
     <!-- Leaflet MarkerCluster CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
@@ -29,9 +29,18 @@
                         hayatını kaybeden işçilerin anısına oluşturulmuştur.
                     </p>
                 </div>
-                <div class="view-toggle">
-                    <button id="mapViewBtn" class="active">Harita</button>
-                    <button id="tableViewBtn">Veri Tablosu</button>
+                <div class="header-controls">
+                    <div class="view-toggle">
+                        <button id="mapViewBtn" class="active">Harita</button>
+                        <button id="tableViewBtn">Veri Tablosu</button>
+                        <a href="analysis.html" class="view-toggle-link">Analiz</a>
+                    </div>
+                    <div class="year-toggle">
+                        <button class="year-btn active" data-year="2025">2025</button>
+                        <button class="year-btn" data-year="2024">2024</button>
+                        <button class="year-btn" data-year="2023">2023</button>
+                        <button class="year-btn" data-year="all">Tüm Yıllar</button>
+                    </div>
                 </div>
             </div>
         </header>
@@ -75,12 +84,11 @@
                     </div>
 
                     <div class="filter-group">
-                        <label>Şehir</label>
-                        <div class="select-wrapper">
-                            <select id="filter-city">
-                                <option value="">Tümü</option>
-                                <!-- Populated dynamically -->
-                            </select>
+                        <label>Tarih Aralığı</label>
+                        <div class="date-inputs">
+                            <input type="date" id="filter-date-start">
+                            <span>-</span>
+                            <input type="date" id="filter-date-end">
                         </div>
                     </div>
 
@@ -101,6 +109,9 @@
 
             <div id="table-container" class="view-container">
                 <div class="table-header">
+                    <div class="search-box">
+                        <input type="text" id="table-search" placeholder="İsim ara...">
+                    </div>
                     <button id="export-csv-btn" class="export-btn">CSV Olarak Dışa Aktar</button>
                 </div>
                 <div class="table-wrapper">
@@ -134,7 +145,7 @@
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    
+
     <!-- Leaflet MarkerCluster JS -->
     <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 

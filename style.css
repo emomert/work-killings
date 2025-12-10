@@ -45,6 +45,14 @@ header h1 {
     max-width: 800px;
 }
 
+/* Header Controls */
+.header-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+}
+
 /* View Toggle Buttons */
 .view-toggle {
     display: flex;
@@ -69,6 +77,55 @@ header h1 {
 
 .view-toggle button.active {
     background-color: #c41e3a;
+    color: white;
+}
+
+.view-toggle-link {
+    background-color: #444;
+    color: #e0e0e0;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.view-toggle-link:hover {
+    background-color: #555;
+    color: white;
+}
+
+/* Year Toggle Buttons */
+.year-toggle {
+    display: flex;
+    gap: 6px;
+}
+
+.year-btn {
+    background-color: transparent;
+    color: #888;
+    border: 1px solid #555;
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.year-btn:hover {
+    background-color: rgba(196, 30, 58, 0.1);
+    border-color: #c41e3a;
+    color: #e0e0e0;
+}
+
+.year-btn.active {
+    background-color: #c41e3a;
+    border-color: #c41e3a;
     color: white;
 }
 
@@ -257,6 +314,37 @@ header h1 {
     box-shadow: 0 0 0 3px rgba(196, 30, 58, 0.1);
 }
 
+.date-inputs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.date-inputs span {
+    color: #666;
+    font-weight: 600;
+}
+
+.date-inputs input[type="date"] {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(196, 30, 58, 0.3);
+    color: #e0e0e0;
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    color-scheme: dark;
+    min-width: 0;
+}
+
+.date-inputs input[type="date"]:focus {
+    outline: none;
+    border-color: #c41e3a;
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 0 3px rgba(196, 30, 58, 0.1);
+}
+
 .select-wrapper {
     position: relative;
 }
@@ -339,8 +427,37 @@ header h1 {
     max-width: 1200px;
     margin: 0 auto 15px auto;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
     padding: 0 10px;
+    gap: 15px;
+}
+
+.search-box {
+    flex: 1;
+    max-width: 300px;
+}
+
+.search-box input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(196, 30, 58, 0.3);
+    color: #e0e0e0;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: #c41e3a;
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 0 3px rgba(196, 30, 58, 0.1);
+}
+
+.search-box input::placeholder {
+    color: #888;
 }
 
 .export-btn {
@@ -549,7 +666,7 @@ footer p {
     justify-content: space-between !important;
     align-items: flex-start;
     padding: 8px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     font-size: 13px;
     line-height: 1.4;
 }
@@ -577,7 +694,7 @@ footer p {
     gap: 4px;
     padding-top: 10px !important;
     margin-top: 6px;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     border-bottom: none !important;
 }
 
@@ -595,7 +712,7 @@ footer p {
 
 .popup-footer {
     padding: 12px 16px;
-    background: rgba(0,0,0,0.25);
+    background: rgba(0, 0, 0, 0.25);
     margin: 0 -1px -1px -1px;
 }
 
@@ -905,4 +1022,215 @@ footer p {
 .source-link:hover {
     color: #ff4d6d;
     text-decoration: underline;
+}
+
+/* =====================
+   RESPONSIVE STYLES
+   ===================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    header {
+        padding: 15px 20px;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    .description {
+        font-size: 13px;
+    }
+
+    .header-controls {
+        width: 100%;
+    }
+
+    .view-toggle {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .year-toggle {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    header {
+        padding: 15px;
+    }
+
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+
+    .description {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .header-controls {
+        align-items: center;
+        gap: 8px;
+    }
+
+    .view-toggle {
+        gap: 5px;
+    }
+
+    .view-toggle button,
+    .view-toggle-link {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .year-toggle {
+        gap: 4px;
+    }
+
+    .year-btn {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+
+    /* Filter Sidebar - Full screen on mobile */
+    .filter-sidebar {
+        width: 100%;
+        left: -100%;
+        padding: 15px;
+    }
+
+    .filter-sidebar.hidden {
+        left: -100%;
+    }
+
+    .filter-sidebar:not(.hidden) {
+        left: 0;
+    }
+
+    .filter-toggle-btn {
+        left: 5px;
+    }
+
+    /* Map Container */
+    #map-container {
+        min-height: 60vh;
+    }
+
+    #map {
+        min-height: 60vh;
+    }
+
+    /* Table Container */
+    .table-container {
+        overflow-x: auto;
+    }
+
+    .table-header {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+
+    .export-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    table {
+        font-size: 12px;
+        min-width: 600px;
+    }
+
+    th,
+    td {
+        padding: 8px 6px;
+    }
+
+    /* Clusters */
+    .marker-cluster {
+        width: 36px !important;
+        height: 36px !important;
+    }
+
+    .marker-cluster span {
+        font-size: 12px !important;
+    }
+
+    /* Popup */
+    .leaflet-popup-content {
+        min-width: 200px !important;
+        max-width: 280px !important;
+    }
+
+    .popup-content h3 {
+        font-size: 14px;
+    }
+
+    .popup-content p {
+        font-size: 11px;
+    }
+
+    .popup-details-btn {
+        padding: 8px 12px;
+        font-size: 11px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 18px;
+    }
+
+    .description {
+        font-size: 11px;
+    }
+
+    .view-toggle button,
+    .view-toggle-link {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+
+    .year-btn {
+        padding: 4px 8px;
+        font-size: 10px;
+    }
+
+    .filter-group label {
+        font-size: 12px;
+    }
+
+    .age-inputs input,
+    .date-inputs input {
+        padding: 6px 8px;
+        font-size: 12px;
+    }
+
+    table {
+        font-size: 11px;
+    }
+
+    th,
+    td {
+        padding: 6px 4px;
+    }
 }

@@ -83,10 +83,9 @@ function renderProfile(record) {
         sourceRow.style.display = 'none';
     }
 
+    // Multi-victim badge hidden from public view (data kept for internal use)
     const multiBadge = document.getElementById('multi-badge');
-    if (record.multi_victim) {
-        multiBadge.style.display = 'inline-block';
-    } else {
+    if (multiBadge) {
         multiBadge.style.display = 'none';
     }
 
